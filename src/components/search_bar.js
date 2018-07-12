@@ -34,15 +34,16 @@ class SearchBar extends Component {
             <div className="search-bar">
                 <input 
                     value={this.state.term}
-                    onChange={event => this.setState({term: event.target.value})}/>
-                <button className="search-button" onClick={() => this.onInputChange()} type="button"><i className="fa fa-search"></i></button>    
+                    onChange={event => this.onInputChange(event.target.value)}/>
+                {/* <button className="search-button" onClick={() => this.onInputChange()} type="button"><i className="fa fa-search"></i></button>     */}
             </div>        
         )
     }
     
     // Method to check when ever the input text changes.
-    onInputChange() {
-        this.props.onSearchTermChange(this.state.term);
+    onInputChange(term) {
+        this.setState({term});
+        this.props.onSearchTermChange(term);
     }
 }
 
